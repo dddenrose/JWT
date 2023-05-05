@@ -15,7 +15,7 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post("/users/login", (req, res) => {
+app.post("/user/login", (req, res) => {
   const checkUser =
     req.body.account === "UserA" && req.body.password === "ABC123";
   if (checkUser) {
@@ -23,7 +23,7 @@ app.post("/users/login", (req, res) => {
   }
 });
 
-app.post("/users/verify", (req, res) => {
+app.post("/user/verify", (req, res) => {
   try {
     const verifyResult = jwt.verify(req.body.token, secret);
     if (verifyResult) {
